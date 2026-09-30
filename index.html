@@ -1,0 +1,84 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Stock Novelties · Mi Portal Coca-Cola</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+:root{--bg:#f5f3f1;--cd:#fff;--tx:#1c1c1f;--mu:#6d6d73;--bd:#e6e2de;--red:#e41e2b;--pl:#2f2f35;--ok:#15935a;--wa:#d9800b;--er:#d3202c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131315;--cd:#1e1e22;--tx:#f2f2f3;--mu:#a1a1a9;--bd:#2d2d33;--pl:#c8c8d0}}
+:root[data-theme="dark"]{--bg:#131315;--cd:#1e1e22;--tx:#f2f2f3;--mu:#a1a1a9;--bd:#2d2d33;--pl:#c8c8d0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.w{max-width:1000px;margin:0 auto;padding:16px}
+header{background:var(--red);color:#fff;border-radius:16px;padding:18px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+h1{margin:0;font-size:20px}header small{opacity:.85;display:block;margin-top:2px}
+.b{border:0;border-radius:10px;padding:9px 14px;font:inherit;font-weight:600;cursor:pointer;background:#fff;color:var(--red)}
+.k{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.c{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:12px 14px}
+.k .c b{display:block;font-size:26px;margin-top:2px}.k .c span{color:var(--mu);font-size:12px}
+.al{background:var(--cd);border-left:4px solid var(--er);border-radius:10px;padding:10px 14px;margin-bottom:12px}
+.t{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+input[type=search]{flex:1;min-width:160px;padding:9px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--cd);color:var(--tx);font:inherit}
+.ch{border:1px solid var(--bd);background:var(--cd);color:var(--tx);border-radius:99px;padding:7px 12px;font:inherit;cursor:pointer}
+.ch.on{background:var(--red);border-color:var(--red);color:#fff}
+.r{display:grid;grid-template-columns:1fr 130px;gap:6px 12px;align-items:center;background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:10px 14px;margin-bottom:8px}
+.r h3{margin:0;font-size:14px}.r small{color:var(--mu)}
+.bar{grid-column:1/-1;height:10px;border-radius:6px;background:var(--bd);display:flex;overflow:hidden}
+.bar i{display:block;height:100%}.bar .a{background:var(--red)}.bar .p{background:var(--pl)}
+.n{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;align-items:center}
+.n .dot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px}
+.bd{justify-self:end;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;color:#fff;white-space:nowrap}
+.ok{background:var(--ok)}.wa{background:var(--wa)}.er{background:var(--er)}
+.mini{border:1px solid var(--bd);background:none;color:var(--tx);border-radius:8px;padding:3px 9px;font:inherit;cursor:pointer}
+h2{font-size:16px;margin:18px 0 8px}.e{color:var(--mu);text-align:center;padding:24px}
+#to{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#222;color:#fff;padding:10px 16px;border-radius:10px;display:none}
+</style></head><body><div class="w">
+<header><div><h1>🥤 Stock de Novelties · Mi Portal Coca-Cola</h1><small id="up"></small></div>
+<div id="ed" style="display:none"><button class="b" id="up1">⬆ Actualizar stock</button><input id="fi" type="file" accept=".xlsx,.xls,.csv" multiple hidden></div></header>
+<div class="k" id="k"></div><div id="al"></div>
+<div class="t"><input type="search" id="s" placeholder="Buscar novelty o ID…"><span id="f" class="t" style="margin:0"></span></div>
+<div id="l"></div><div id="pr"></div></div><div id="to"></div>
+<script>
+const D=[{"id":360,"n":"Jarra de vidrio Ades","a":68,"r":14,"p":0,"m":10},{"id":503,"n":"Hoodie Marvel - Tamaño S","a":0,"r":0,"p":0,"m":10},{"id":504,"n":"Hoodie Marvel blanco - Tamaño M","a":0,"r":0,"p":0,"m":10},{"id":505,"n":"Hoodie Marvel","a":0,"r":0,"p":0,"m":10},{"id":506,"n":"Hoodie Marvel","a":0,"r":0,"p":0,"m":10},{"id":535,"n":"Hoodie Marvel rojo - Tamaño L","a":12,"r":0,"p":0,"m":10},{"id":553,"n":"Tarro vintage rojo - Colección limitada","a":165,"r":26,"p":0,"m":10},{"id":554,"n":"Tarro vintage - Colección limitada","a":14,"r":0,"p":0,"m":10},{"id":613,"n":"Lonchera térmica Kapo","a":110,"r":3,"p":0,"m":10},{"id":667,"n":"Vaso Fernet","a":0,"r":0,"p":0,"m":10},{"id":716,"n":"Camiseta Coca-Cola retro M","a":0,"r":0,"p":0,"m":10},{"id":724,"n":"Plato Coleccionable N° 1","a":0,"r":11,"p":0,"m":10},{"id":725,"n":"Plato Coleccionable N° 2","a":0,"r":32,"p":0,"m":10},{"id":726,"n":"Plato Coleccionable N° 3","a":7,"r":26,"p":0,"m":10},{"id":727,"n":"Plato Coleccionable N° 4","a":0,"r":25,"p":0,"m":10},{"id":728,"n":"Plato Coleccionable N° 5","a":0,"r":31,"p":0,"m":10},{"id":729,"n":"Plato Coleccionable N° 6","a":0,"r":32,"p":0,"m":10},{"id":342,"n":"Copa Schweppes","a":102,"r":45,"p":0,"m":10},{"id":508,"n":"Vaso Iron Man","a":65,"r":2,"p":0,"m":10},{"id":509,"n":"Vaso Thor","a":145,"r":0,"p":0,"m":10},{"id":576,"n":"Manta Playera Bot. Blanca","a":144,"r":0,"p":0,"m":10},{"id":578,"n":"Manta Playera Bot. Naranja","a":0,"r":0,"p":0,"m":10},{"id":640,"n":"Vaso de vidrio 355 ml Coca-Cola Verde","a":0,"r":0,"p":0,"m":10},{"id":668,"n":"Regalo Mini Gin Classic","a":36,"r":0,"p":0,"m":10},{"id":669,"n":"Regalo Copa Aperol","a":29,"r":0,"p":0,"m":10},{"id":670,"n":"Regalo Mini Gin Strawberry","a":43,"r":0,"p":0,"m":10},{"id":695,"n":"Vaso Vintage negro","a":0,"r":1,"p":0,"m":10},{"id":696,"n":"Vaso Vintage rojo","a":8,"r":115,"p":0,"m":10},{"id":701,"n":"Vaso Sticker","a":165,"r":0,"p":0,"m":10},{"id":714,"n":"Camiseta Coca-Cola retro L","a":0,"r":0,"p":0,"m":10},{"id":746,"n":"Vaso balón","a":281,"r":28,"p":0,"m":10},{"id":813,"n":"Abridores momentos Arbolito","a":0,"r":0,"p":0,"m":10},{"id":814,"n":"Abridores momentos Pan Dulce","a":0,"r":0,"p":0,"m":10},{"id":815,"n":"Abridores momentos Copitas","a":0,"r":0,"p":0,"m":10},{"id":834,"n":"Vaso Cool Sprite","a":1588,"r":6,"p":0,"m":10},{"id":835,"n":"Mug Sprite","a":86,"r":63,"p":0,"m":10},{"id":842,"n":"Vaso plástico Garra Guaraní azul","a":216,"r":1,"p":0,"m":10},{"id":843,"n":"Vaso plástico Garra Guaraní rojo","a":230,"r":1,"p":0,"m":10},{"id":844,"n":"Choppera Albirroja","a":68,"r":0,"p":0,"m":10},{"id":845,"n":"Vaso de vidrio Garra Guaraní","a":445,"r":0,"p":0,"m":10},{"id":846,"n":"Taza Garra Guaraní","a":0,"r":1,"p":0,"m":10},{"id":1014,"n":"Paquete Figurita Panini","a":0,"r":0,"p":0,"m":10},{"id":990,"n":"Vaso Tricolor Rojo","a":194,"r":38,"p":0,"m":10},{"id":991,"n":"Vaso Tricolor Blanco","a":172,"r":55,"p":0,"m":10},{"id":992,"n":"Vaso Tricolor Azul","a":117,"r":40,"p":0,"m":10},{"id":1026,"n":"Posavasos Acrílicos Albirroja x5","a":129,"r":9,"p":0,"m":10},{"id":1027,"n":"Porta Posavasos de Pino","a":129,"r":9,"p":0,"m":10},{"id":1037,"n":"Vaso canción","a":264,"r":216,"p":0,"m":10},{"id":1053,"n":"Pelota PUMA oficial 2026","a":3,"r":47,"p":0,"m":10},{"id":1107,"n":"Snack Bowl","a":0,"r":1,"p":0,"m":10},{"id":1109,"n":"Llavero CC Mundial 2026","a":1,"r":0,"p":0,"m":10},{"id":1108,"n":"Vaso de Aluminio Mundial 2026","a":0,"r":190,"p":0,"m":10},{"id":1122,"n":"Abridor CC Mundial Rojo","a":66,"r":4,"p":0,"m":10},{"id":1123,"n":"Abridor CC Mundial Blanco","a":35,"r":96,"p":0,"m":10},{"id":1196,"n":"Canastillos RET X2","a":176,"r":24,"p":0,"m":10},{"id":1197,"n":"Canastillos RET X4","a":156,"r":47,"p":0,"m":10},{"id":1216,"n":"Kepi Fernet","a":69,"r":30,"p":0,"m":10},{"id":1217,"n":"Bufanda Fernet","a":28,"r":21,"p":0,"m":10},{"id":1218,"n":"Posavaso Fernet","a":34,"r":0,"p":0,"m":10},{"id":1271,"n":"Hoppie Powerade","a":152,"r":46,"p":0,"m":10},{"id":1305,"n":"Escurridor de Copas Campari","a":1,"r":6,"p":0,"m":10},{"id":1306,"n":"Medidor rojo Campari","a":0,"r":0,"p":0,"m":10},{"id":357,"n":"Vaso shot aperitivo campari","a":2,"r":2,"p":0,"m":10},{"id":1424,"n":"Plato Madera diseño Arpa","a":5,"r":0,"p":0,"m":10},{"id":1426,"n":"Plato Madera diseño Guampa Tereré","a":5,"r":0,"p":0,"m":10},{"id":1425,"n":"Plato Madera diseño Guitarra","a":3,"r":0,"p":0,"m":10},{"id":1427,"n":"Plato Madera diseño Guampa Mate","a":3,"r":0,"p":0,"m":10},{"id":1423,"n":"Crochet diseño Lata","a":6,"r":0,"p":0,"m":10},{"id":1422,"n":"Crochet diseño Botella CC","a":11,"r":0,"p":0,"m":10},{"id":1421,"n":"Arito diseño Coca-Cola Botella + Empanada","a":3,"r":0,"p":0,"m":10},{"id":1420,"n":"Arito diseño Coca-Cola Lata + Pizza","a":17,"r":0,"p":0,"m":10}];
+let S={items:D,t:null},ref=null,canW=false,f='all',q='';
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])),nf=n=>n.toLocaleString('es-PY');
+const ST={env:['Enviar a AEX','er',0],sin:['Sin stock','er',1],baj:['Bajo en AEX','wa',2],ok:['OK','ok',3]};
+const st=i=>i.a+i.p<=0?ST.sin:i.a<=0?ST.env:i.a<i.m?ST.baj:ST.ok;
+function toast(m){const t=$('#to');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',3500)}
+async function save(){if(!ref)return;try{await ref.set({items:S.items,t:S.t})}catch(e){toast('No se pudo guardar (¿tenés permiso de edición?)')}}
+function render(){
+const I=S.items,sum=k=>I.reduce((x,i)=>x+i[k],0),al=I.filter(i=>st(i)[1]=='er'&&i.a+i.p>0||st(i)==ST.sin).length;
+$('#up').textContent=S.t?'Actualizado: '+new Date(S.t).toLocaleString('es-PY'):'Datos iniciales del export de VTEX';
+$('#ed').style.display=canW?'block':'none';
+$('#k').innerHTML=[['AEX disponible',sum('a')],['Reservado en AEX',sum('r')],['En planta',sum('p')],['Total AEX + planta',sum('a')+sum('p')],['Productos',I.length]].map(x=>`<div class="c"><span>${x[0]}</span><b>${nf(x[1])}</b></div>`).join('');
+const env=I.filter(i=>st(i)==ST.env),sin=I.filter(i=>st(i)==ST.sin),baj=I.filter(i=>st(i)==ST.baj);
+const cnt={all:I.length,env:env.length,baj:baj.length,sin:sin.length,ok:I.length-env.length-sin.length-baj.length};
+$('#al').innerHTML=env.length?`<div class="al"><b>${env.length} novelties sin stock en AEX pero con stock en planta.</b> Para la próxima reposición (martes o viernes): ${env.slice(0,6).map(i=>esc(i.n)).join(', ')}${env.length>6?'…':''}</div>`:'';
+$('#f').innerHTML=[['all','Todos'],['env','Enviar a AEX'],['baj','Bajo en AEX'],['sin','Sin stock'],['ok','OK']].map(x=>`<button class="ch ${f==x[0]?'on':''}" data-f="${x[0]}">${x[1]} (${cnt[x[0]]})</button>`).join('');
+const v=I.filter(i=>(f=='all'||st(i)==ST[f])&&(i.n.toLowerCase().includes(q)||String(i.id).includes(q))).sort((a,b)=>st(a)[2]-st(b)[2]||(b.a+b.p)-(a.a+a.p));
+const mx=Math.max(1,...v.map(i=>i.a+i.p));
+$('#l').innerHTML=v.length?v.map(i=>{const s=st(i);return `<div class="r"><div><h3>${esc(i.n)}</h3><small>ID ${i.id} · mínimo AEX: ${i.m}</small></div><span class="bd ${s[1]}">${s[0]}</span>
+<div class="bar"><i class="a" style="width:${i.a/mx*100}%"></i><i class="p" style="width:${i.p/mx*100}%"></i></div>
+<div class="n"><span><i class="dot" style="background:var(--red)"></i>AEX: <b>${nf(i.a)}</b> <small>(reservado ${nf(i.r)})</small></span><span><i class="dot" style="background:var(--pl)"></i>Planta: <b>${nf(i.p)}</b></span><span>Total: <b>${nf(i.a+i.p)}</b></span>
+${canW?`<button class="mini" data-s="${i.id}">Enviar a AEX</button><button class="mini" data-m="${i.id}">Mínimo</button>`:''}</div></div>`}).join(''):'<div class="e">Sin resultados</div>';
+const hi=I.filter(i=>i.a+i.p>=Math.max(3*i.m,30)).sort((a,b)=>(b.a+b.p)-(a.a+a.p)).slice(0,6),pr=[];
+for(let j=0;j+1<hi.length;j+=2)pr.push(`<div class="c" style="margin-bottom:8px"><b>${esc(hi[j].n)}</b> + <b>${esc(hi[j+1].n)}</b><br><small style="color:var(--mu)">Stock alto en ambos (${nf(hi[j].a+hi[j].p)} y ${nf(hi[j+1].a+hi[j+1].p)} u.): buen candidato a combo o promo.</small></div>`);
+$('#pr').innerHTML=pr.length?'<h2>💡 Ideas de combos / promos</h2>'+pr.join('')+'<small style="color:var(--mu)">Basado solo en nivel de stock. Con ventas por período se puede afinar.</small>':'';}
+async function imp(file){const wb=XLSX.read(await file.arrayBuffer()),ws=wb.Sheets[wb.SheetNames.includes('Novelties')?'Novelties':wb.SheetNames[0]],a=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
+const hi=a.findIndex(r=>r.some(c=>/^(skuid|id_sku)$/i.test(String(c).trim())));if(hi<0)return toast('No reconozco el archivo: '+file.name);
+const h=a[hi].map(c=>String(c).trim().toLowerCase()),ix=k=>h.indexOf(k),body=a.slice(hi+1),id=r=>String(r[ix('skuid')>=0?ix('skuid'):ix('id_sku')]).trim();
+const m={};body.forEach(r=>m[id(r)]=r);
+if(ix('skuid')>=0){const av=ix('availablequantity'),rs=ix('reservedquantity');S.items.forEach(i=>{const r=m[i.id];i.a=r?+r[av]||0:0;i.r=r?+r[rs]||0:0});toast('Stock de VTEX cargado')}
+else{const ip=ix('planta')>=0?ix('planta'):ix('planta_inicial'),im=ix('stock_min_aex'),nn=ix('nombre_sku');if(ip<0)return toast('Falta la columna Planta');
+let c=0;S.items.forEach(i=>{const r=m[i.id];if(r){i.p=Math.max(0,+r[ip]||0);if(im>=0&&r[im]!=='')i.m=+r[im]||0;c++}});
+body.forEach(r=>{const k=id(r);if(k&&!S.items.some(i=>String(i.id)==k)&&nn>=0)S.items.push({id:+k||k,n:String(r[nn]).trim(),a:0,r:0,p:Math.max(0,+r[ip]||0),m:im>=0?+r[im]||10:10})});toast('Stock de planta cargado ('+c+' productos)')}
+S.t=new Date().toISOString();render();await save()}
+document.addEventListener('click',async e=>{const t=e.target;
+if(t.dataset.f){f=t.dataset.f;render()}
+if(t.id=='up1')$('#fi').click();
+if(t.dataset.s){const i=S.items.find(x=>x.id==t.dataset.s),n=parseInt(prompt(`¿Cuántas unidades de "${i.n}" se envían de planta a AEX? (planta: ${i.p})`),10);
+if(n>0&&n<=i.p){i.p-=n;i.a+=n;S.t=new Date().toISOString();render();await save()}else if(n)toast('Cantidad inválida')}
+if(t.dataset.m){const i=S.items.find(x=>x.id==t.dataset.m),n=parseInt(prompt(`Stock mínimo en AEX para "${i.n}":`,i.m),10);if(n>=0){i.m=n;render();await save()}}});
+$('#s').oninput=e=>{q=e.target.value.toLowerCase();render()};
+$('#fi').onchange=async e=>{for(const x of e.target.files)await imp(x);e.target.value=''};
+(async()=>{render();try{if(!window.claude)return;const u=await claude.use('user'),db=await claude.use('db');if(!db)return;canW=u?u.can('data.write')!==false:true;
+ref=db.doc('stock/main');ref.onSnapshot(s=>{if(s.exists){const d=s.data();S={items:JSON.parse(JSON.stringify(d.items||[])),t:d.t||null}}render()},()=>{});render()}catch(e){}})();
+</script></body></html>
